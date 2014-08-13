@@ -1,10 +1,11 @@
-#module pour gérer les expressions réguilères
+# encoding: utf-8
+#module pour gÃ©rer les expressions rÃ©guilÃ¨res
 import re
-#module qui contient des méthodes et des fonctions pour gérer les encodages
+#module qui contient des mÃ©thodes et des fonctions pour gÃ©rer les encodages
 import codecs
-#module qui contient des méthodes et des fonctions pour gérer le système
+#module qui contient des mÃ©thodes et des fonctions pour gÃ©rer le systÃ¨me
 import sys
-#ouvrir le fichier qui est dans la 2ème position
+#ouvrir le fichier qui est dans la 2Ã¨me position
 fichier=codecs.open(sys.argv[1],"r","utf-8")
 #lire le text
 text=fichier.read()
@@ -25,7 +26,7 @@ for ponct in pc:
     #remplacer dans text "  " (les deux espaces) par " " (un seul espace)
     text=text.replace("  "," ")
 
-# découper le fichier par text
+# dÃ©couper le fichier par text
 fich=text.splitlines()
 
 
@@ -37,9 +38,9 @@ for line in fich:
     espace= line.count(" ")
     #initier le compteur pour la boucle while
     i=0
-    #tant que i est infierure ou egale à la longueur de line - ngram -espace
+    #tant que i est infierure ou egale Ã  la longueur de line - ngram -espace
     while i <= len(line)-ngram-espace:
-        #si l'indice de line[i] est différent d'espace " "
+        #si l'indice de line[i] est diffÃ©rent d'espace " "
         if line[i]!=" ":
             #la variable lettres vaut la valeur 0
             lettres=0
@@ -49,26 +50,26 @@ for line in fich:
             j=0
             #type vaut ""
             type=""
-            #tant que lettres est inférieur de ngram
+            #tant que lettres est infÃ©rieur de ngram
             while lettres<ngram:
-                #si l'indice de line est [i+j]est différent d'espace " "
+                #si l'indice de line est [i+j]est diffÃ©rent d'espace " "
                 if line [i+j] != " ":
                     #afficher line [i+j]
-                    print line [i+j],
-                    #incrémenter la variable
+                    print line [i+j].encode('utf8'),
+                    #incrÃ©menter la variable
                     lettres +=1
-                    #incrémenter la variable  
+                    #incrÃ©menter la variable  
                     lettreslocales+=1
                 #autrement
                 else:
-                    #la variable type vaut type +str(reconversion en chaine de caractères)
+                    #la variable type vaut type +str(reconversion en chaine de caractÃ¨res)
                     #+un point"."
                     type=type+str(lettreslocales)+"."
                     #la variable lettreslocales vaut 0
                     lettreslocales=0
-                #incrémenter la variable j
+                #incrÃ©menter la variable j
                 j+=1
-            #la variable type vaut type +str(reconversion en chaine de caractères)
+            #la variable type vaut type +str(reconversion en chaine de caractÃ¨res)
             type=type+str(lettreslocales)
             #afficher
             print
